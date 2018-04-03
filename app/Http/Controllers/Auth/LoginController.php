@@ -72,7 +72,7 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-        $credentials = array_merge($this->credentials($request) , ['is_active' => 1]);
+        $credentials = $this->credentials($request);
         return $this->guard()->attempt(
             $credentials, $request->has('remember')
         );

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => '邮箱密码错误或请激活邮箱',
+    'failed' => '邮箱密码错误',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

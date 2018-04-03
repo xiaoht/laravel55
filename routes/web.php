@@ -10,12 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/email/verify/{token}' , ['as' => 'email.verify' , 'uses' => '\App\Http\Controllers\Auth\RegisterController@verify']);
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/email/verify/{token}' , ['as' => 'email.verify' , 'uses' => 'RegisterController@verify']);
+Route::resource('posts' , 'PostController');
