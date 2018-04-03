@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use App\Events\Register;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -62,10 +64,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'avatar' => '/fly/res/images/avatars/default.png',
+            'confirmation_token' => $data['name'].str_random(40),
             'password' => bcrypt($data['password']),
         ]);
+        event(new Register($user));
+        return $user;
+    }
+
+    public function verify($token)
+    {
+        $user = User::where('confirmation_token' , $token)->first();
+
+        if(is_null($user)){
+            return redirect('/');
+        }
+
+        $user->is_active = 1;
+        $user->confirmation_token = $user->name.str_random(40);
+        $user->save();
+        Auth::login($user);
+        return redirect('/');
     }
 }
