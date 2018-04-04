@@ -1,3 +1,4 @@
-layui.use('element', function(){
-    var element = layui.element;
+layui.use(['element' , 'form'], function(){
+    var element = layui.element
+        , form = layui.form
 });
