@@ -18,6 +18,9 @@ class CreatePostsTable extends Migration
             $table->string('title' ,100)->default('');
             $table->text('content');
             $table->integer('user_id')->default(0);
+            $table->smallInteger('post_type')->default(0);
+            $table->smallInteger('is_top')->default(0);
+            $table->smallInteger('is_fine')->default(0);
             $table->timestamps();
         });
     }
