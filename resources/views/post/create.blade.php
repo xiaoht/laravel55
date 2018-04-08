@@ -9,18 +9,18 @@
                 </ul>
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                     <div class="layui-tab-item layui-show">
-                        {!! Form::open(['url' => route('posts.store')]) !!}
+                        {!! Form::open(['url' => route('post.store')]) !!}
                             <div class="layui-row layui-col-space15 layui-form-item">
                             <div class="layui-col-md4">
-                                <label class="layui-form-label">专栏</label>
+                                {!! Form::label('post_type', '专栏' , ['class' => 'layui-form-label']) !!}
                                 <div class="layui-input-block">
                                   {!! Form::select('post_type', $post_types, old('post_type') , ['lay-verify' => 'required' , 'lay-filter' => 'column']) !!}
                                 </div>
                             </div>
                             <div class="layui-col-md8">
-                                <label for="L_title" class="layui-form-label">标题</label>
+                                {!! Form::label('title', '标题' , ['class' => 'layui-form-label']) !!}
                                 <div class="layui-input-block">
-                                  {!! Form::text('title' , old('title') , ['id' => 'L_title' , 'required' => 'required' , 'lay-verify' => 'required' , 'autocomplete' => 'off' , 'class' => 'layui-input']) !!}
+                                  {!! Form::text('title' , old('content') , ['id' => 'L_title' , 'required' => 'required' , 'lay-verify' => 'required' , 'autocomplete' => 'off' , 'class' => 'layui-input']) !!}
                                 </div>
                             </div>
                             </div>

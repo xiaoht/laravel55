@@ -14,6 +14,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/email/verify/{token}' , ['as' => 'email.verify' , 'uses' => 'Auth\RegisterController@verify']);
-Route::resource('posts' , 'PostsController');
-Route::get('/v{post_type}', 'PostsController@index')->name('post_home');
-Route::post('/posts/imageUpload' , 'PostsController@imageUpload');
+Route::resource('post' , 'PostController');
+Route::get('/v{post_type}', 'PostController@index')->name('post_home');
+Route::post('/post/imageUpload' , 'PostController@imageUpload');
