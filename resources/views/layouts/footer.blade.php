@@ -9,6 +9,6 @@
 
 <script src="/fly/res/layui/layui.js"></script>
 <script src="/js/common.js"></script>
-@if (count($errors) > 0)
-    @include('layouts.error')
+@if (count($errors) > 0 || session('status'))
+    @include('layouts.alert')
 @endif

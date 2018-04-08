@@ -14,7 +14,7 @@
                             <div class="layui-form-item">
                                 {!! Form::label('email' , '邮箱' , ['class' => 'layui-form-label']) !!}
                                 <div class="layui-input-inline">
-                                    {!! Form::text('email' , '' , ['id' => 'L_email' , 'lay-verify' => 'required' , 'autocomplete' => 'off' , 'class' => 'layui-input' , 'required' => 'required']) !!}
+                                    {!! Form::text('email' , old('email') , ['id' => 'L_email' , 'lay-verify' => 'required' , 'autocomplete' => 'off' , 'class' => 'layui-input' , 'required' => 'required']) !!}
                                 </div>
                             </div>
                             <div class="layui-form-item">

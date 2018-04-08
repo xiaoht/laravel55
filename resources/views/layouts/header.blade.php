@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="海涛社区">
     <meta name="description" content="海涛社区">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/fly/res/layui/css/layui.css">
     <link rel="stylesheet" href="/fly/res/css/global.css">
 </head>

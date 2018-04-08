@@ -33,7 +33,7 @@
                             <!--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
                             <i class="layui-badge fly-badge-vip">VIP3</i>
                         </a>
-                        <span>刚刚</span>
+                        <span>{{ $post->created_at->diffForHumans() }}</span>
 
                         <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> 60</span>
                         <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
@@ -48,9 +48,7 @@
             @endforeach
         </ul>
         <div style="text-align: center">
-            <div class="laypage-main">
-                {{ $posts->links() }}
-            </div>
+            {{ $posts->links() }}
         </div>
 
     </div>

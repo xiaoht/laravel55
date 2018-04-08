@@ -8,7 +8,7 @@ $post_type = \Request()->get('post_type');
         <ul class="layui-clear">
             <li class="{{ is_null($post_type) ? 'layui-hide-xs layui-this' : '' }}"><a href="/">首页</a></li>
             @foreach($post_types as $k => $v)
-                <li class="{{ $k === intval($post_type) && !is_null($post_type)  ? 'layui-hide-xs layui-this' : '' }}"><a href="{{ route('home' , ['post_type' => $k]) }}">{{ $v }}</a></li>
+                <li class="{{ $k === intval($post_type) && !is_null($post_type)  ? 'layui-hide-xs layui-this' : '' }}"><a href="{{ route('post_home' , ['post_type' => $k]) }}">{{ $v }}</a></li>
             @endforeach
             <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
 

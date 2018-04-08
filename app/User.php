@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Services\SendCloud;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
