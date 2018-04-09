@@ -1,7 +1,8 @@
-layui.use(['element' , 'form' , 'layedit'], function(){
+layui.use(['element' , 'form' , 'layedit' , 'util'], function(){
     var element = layui.element,
         form = layui.form,
         layedit = layui.layedit,
+        util = layui.util,
         $ = layui.jquery;
     $.ajaxSetup({
         headers: {
@@ -15,5 +16,16 @@ layui.use(['element' , 'form' , 'layedit'], function(){
         }
     });
     layedit.build('L_content',{
+        height: 300
+    });
+
+    util.fixbar({
+        bar1: '&#xe642;'
+        ,bgcolor: '#009688'
+        ,click: function(type){
+            if(type === 'bar1'){
+                location.href = '/post/create';
+            }
+        }
     });
 });

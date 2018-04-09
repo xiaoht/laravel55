@@ -17,3 +17,4 @@ Route::get('/email/verify/{token}' , ['as' => 'email.verify' , 'uses' => 'Auth\R
 Route::resource('post' , 'PostController');
 Route::get('/v{post_type}', 'PostController@index')->name('post_home');
 Route::post('/post/imageUpload' , 'PostController@imageUpload');
+Route::post('/post/comment/{post}' , 'PostController@comment')->name('post.comment');
