@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Models\Post;
 use App\Http\Services\SendCloud;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,5 +29,10 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         SendCloud::sendPasswordResetNotification($token , $this);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

@@ -1,10 +1,10 @@
 @extends('layouts.community')
 @section('content')
     <div class="fly-panel detail-box">
-        <h1>{!! $post->title !!}</h1>
+        <h1>{{ $post->title }}</h1>
         <div class="fly-detail-info">
             <!-- <span class="layui-badge">审核中</span> -->
-            <span class="layui-badge layui-bg-green fly-detail-column">动态</span>
+            <span class="layui-badge layui-bg-green fly-detail-column">{{ $post_types[$post->post_type] }}</span>
 
             <div class="fly-admin-box" data-id="123">
                 <span class="layui-btn layui-btn-xs jie-admin" type="del">删除</span>
@@ -17,19 +17,20 @@
         </div>
         <div class="detail-about">
             <a class="fly-avatar" href="../user/home.html">
-                <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt="贤心">
+                <img src="{{ $post->user->avatar }}" alt="贤心">
             </a>
             <div class="fly-detail-user">
                 <a href="../user/home.html" class="fly-link">
-                    <cite>贤心</cite>
+                    <cite>{{ $post->user->name }}</cite>
 
                 </a>
                 <span>{{ $post->created_at->diffForHumans() }}</span>
             </div>
             <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
-                @if (Auth::check() && Auth::user()->can('update', $post))
+                @can('update' , $post)
                     <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="{{ route('post.edit' , ['post' => $post]) }}">编辑此贴</a></span>
-                @endif
+                @endcan
+                <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="{{ route('post.edit' , ['post' => $post]) }}">点击收藏</a></span>
             </div>
         </div>
         <div class="detail-body photos">
@@ -43,7 +44,8 @@
         </fieldset>
 
         <ul class="jieda" id="jieda">
-            <li data-id="111" class="jieda-daan">
+            @if($post->comments()->exists())
+                <li data-id="111" class="jieda-daan">
                 <a name="item-1111111111"></a>
                 <div class="detail-about detail-about-reply">
                     <a class="fly-avatar" href="">
@@ -89,44 +91,9 @@
                     </div>
                 </div>
             </li>
-
-            <li data-id="111">
-                <a name="item-1111111111"></a>
-                <div class="detail-about detail-about-reply">
-                    <a class="fly-avatar" href="">
-                        <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt=" ">
-                    </a>
-                    <div class="fly-detail-user">
-                        <a href="" class="fly-link">
-                            <cite>贤心</cite>
-                        </a>
-                    </div>
-                    <div class="detail-hits">
-                        <span>2017-11-30</span>
-                    </div>
-                </div>
-                <div class="detail-body jieda-body photos">
-                    <p>蓝瘦那个香菇，这是一条没被采纳的回帖</p>
-                </div>
-                <div class="jieda-reply">
-              <span class="jieda-zan" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em>0</em>
-              </span>
-                    <span type="reply">
-                <i class="iconfont icon-svgmoban53"></i>
-                回复
-              </span>
-                    <div class="jieda-admin">
-                        <span type="edit">编辑</span>
-                        <span type="del">删除</span>
-                        <span class="jieda-accept" type="accept">采纳</span>
-                    </div>
-                </div>
-            </li>
-
-            <!-- 无数据时 -->
-            <!-- <li class="fly-none">消灭零回复</li> -->
+            @else
+                <li class="fly-none">消灭零回复</li>
+            @endif
         </ul>
 
         <div class="layui-form layui-form-pane">
