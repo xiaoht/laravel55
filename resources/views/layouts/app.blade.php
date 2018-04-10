@@ -1,6 +1,3 @@
 @include('layouts.header')
-<div class="layui-container fly-marginTop">
-    @yield('content')
-</div>
-
+@yield('content')
 @include('layouts.footer')

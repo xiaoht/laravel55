@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Http\Models\Comment;
 use App\Http\Models\Post;
+use App\Http\Models\Zan;
 use App\Http\Services\SendCloud;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,6 +35,16 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->orderBy('created_at' , 'desc');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->orderBy('created_at' , 'desc');
+    }
+
+    public function zans()
+    {
+        return $this->hasMany(Zan::class)->orderBy('created_at' , 'desc');
     }
 }

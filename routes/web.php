@@ -17,6 +17,10 @@ Route::get('/email/verify/{token}' , ['as' => 'email.verify' , 'uses' => 'Auth\R
 Route::resource('post' , 'PostController');
 Route::get('/v{post_type}', 'PostController@index')->name('post_home');
 Route::post('/post/imageUpload' , 'PostController@imageUpload');
-Route::post('/post/comment/{post}' , 'PostController@comment')->name('post.comment');
-Route::get('/post/zan/{post}' , 'PostController@zan')->name('post.zan');
-Route::get('/post/unzan/{post}' , 'PostController@unzan')->name('post.unzan');
+Route::post('/post/{post}/comment' , 'PostController@comment')->name('post.comment');
+Route::get('/post/{post}/zan' , 'PostController@zan')->name('post.zan');
+Route::get('/post/{post}/unzan' , 'PostController@unzan')->name('post.unzan');
+Route::get('/user/{user}/show' , 'UserController@show')->name('user.show');
+Route::group(['middleware' => 'auth:web'], function(){
+    Route::get('/user/{user}/index' , 'UserController@index')->name('user.index');
+});

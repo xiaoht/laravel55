@@ -12,7 +12,7 @@
         <ul class="fly-list">
             @foreach($posts as $post)
                 <li>
-                    <a href="user/home.html" class="fly-avatar">
+                    <a href="{{ route('user.show' , ['user' => $post->user]) }}" class="fly-avatar">
                         <img src="{{ $post->user->avatar }}" alt="贤心">
                     </a>
                     <h2>

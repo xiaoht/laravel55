@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="fly-panel fly-panel-user" pad20>
+    <div class="layui-container fly-marginTop">
+        <div class="fly-panel fly-panel-user" pad20>
         <div class="layui-tab layui-tab-brief" lay-filter="user">
             <ul class="layui-tab-title">
                 <li class="layui-this">重置密码</li>
@@ -24,5 +25,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

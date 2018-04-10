@@ -14,11 +14,11 @@
           </span>
         </div>
         <div class="detail-about">
-            <a class="fly-avatar" href="../user/home.html">
+            <a class="fly-avatar" href="{{ route('user.show' , ['user' => $post->user]) }}">
                 <img src="{{ $post->user->avatar }}" alt="{{ $post->user->name }}">
             </a>
             <div class="fly-detail-user">
-                <a href="../user/home.html" class="fly-link">
+                <a href="{{ route('post.show' , ['user' => $post->user]) }}" class="fly-link">
                     <cite>{{ $post->user->name }}</cite>
 
                 </a>
