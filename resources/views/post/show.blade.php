@@ -7,6 +7,10 @@
             <span class="fly-list-nums">
             <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> {{ count($post->comments) }}</a>
             <i class="iconfont" title="人气">&#xe60b;</i> {{ $post->views }}
+            <span class="jieda-zan" type="zan">
+                <i class="iconfont icon-zan"></i>
+                {{ count($post->zans) }}
+            </span>
           </span>
         </div>
         <div class="detail-about">

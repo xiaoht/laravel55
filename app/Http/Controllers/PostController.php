@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function index($post_type)
     {
-        $posts = Post::where('post_type' , $post_type)->orderBy('created_at' ,  'desc')->with(['user'])->withCount('comments')->paginate(10);
+        $posts = Post::where('post_type' , $post_type)->orderBy('created_at' ,  'desc')->with(['user'])->withCount(['comments','zans'])->paginate(10);
         $post_types = Post::$post_types;
         return view('post.index' , compact('posts' , 'post_types'));
     }
@@ -64,7 +64,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->load(['user' , 'comments' , 'comments.user']);
+        $post->load(['user' , 'comments' , 'comments.user' , 'zans']);
         $post_types = Post::$post_types;
         DB::table('posts')->where('id' , $post->id)->increment('views');
         return view('post.show' , compact('post' , 'post_types'));

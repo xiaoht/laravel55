@@ -27,6 +27,7 @@
                         <span class="fly-list-nums">
                             <i class="iconfont icon-pinglun1" title="回答"></i> {{ $post->comments_count }}
                             <i class="iconfont" title="人气">&#xe60b;</i> {{ $post->views }}
+                            <i class="iconfont icon-zan"></i> {{ $post->zans_count }}
                         </span>
                     </div>
                 </li>
