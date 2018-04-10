@@ -11,7 +11,7 @@ layui.use(['element' , 'form' , 'layedit' , 'util'], function(){
     });
     layedit.set({
         uploadImage: {
-            url: '/posts/imageUpload',
+            url: '/post/imageUpload',
             type: 'post'
         }
     });

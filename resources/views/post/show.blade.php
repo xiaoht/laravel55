@@ -30,10 +30,18 @@
                         {!! Form::hidden('_method' , 'DELETE') !!}
                     {!! Form::close() !!}
                 @endcan
-                <span class="jieda-zan" type="zan">
-                    <i href="#" class="iconfont icon-zan"></i>
-                    <em>点赞即可收藏！！！</em>
-                </span>
+                @if($post->zan(\Auth::id())->exists())
+                    <span class="jieda-zan zanok" type="zan">
+                        <a href="{{ route('post.unzan' , ['post' => $post])}}" class="iconfont icon-zan"></a>
+                        <em>取消点赞即可取消收藏！！！</em>
+                    </span>
+                @else
+                    <span class="jieda-zan" type="zan">
+                        <a href="{{ route('post.zan' , ['post' => $post]) }}" class="iconfont icon-zan"></a>
+                        <em>点赞即可收藏！！！</em>
+                    </span>
+                @endif
+
             </div>
         </div>
         <div class="detail-body photos">

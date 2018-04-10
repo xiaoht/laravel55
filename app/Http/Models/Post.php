@@ -22,4 +22,14 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class)->orderBy('created_at' , 'desc');
     }
+
+    public function zan($user_id)
+    {
+        return $this->hasOne(Zan::class)->where('user_id' , $user_id);
+    }
+
+    public function zans()
+    {
+        return $this->hasMany(Zan::class);
+    }
 }

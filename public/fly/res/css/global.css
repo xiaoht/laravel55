@@ -373,14 +373,16 @@ body .layui-edit-face  .layui-layer-content{padding:0; background-color:#fff; co
 .jieda-body p{margin-bottom: 10px;}
 .jieda-body a{color:#4f99cf}
 .jieda-reply{position:relative;}
-.jieda-reply span,.jieda-zan{padding-right:20px; color:#999; cursor:pointer;}
+.jieda-reply span,.jieda-zan a{padding-right:20px; color:#999; cursor:pointer;}
 .jieda-reply span:hover{color:#666;}
 .jieda-reply span i{margin-right:5px; font-size:16px;}
 .jieda-reply span em{font-style: normal;}
 .jieda-reply span .icon-zan{font-size: 22px;}
 .jieda-reply .zanok,
-.jieda-reply .jieda-zan:hover , .jieda-zan i:hover{color:#c00}
+.jieda-reply .jieda-zan:hover , .jieda-zan a:hover{color:#c00}
 .jieda-reply span .icon-svgmoban53{position: relative; top: 1px;}
+.detail-hits .jieda-zan em{color:#67b168;font-weight:bold}
+.zanok a{color:#c00}
 
 
 /* 用户中心 */

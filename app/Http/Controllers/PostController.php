@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Comment;
 use App\Http\Models\Post;
+use App\Http\Models\Zan;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostRequest;
 use Auth;
@@ -14,7 +15,7 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth' , ['only' => ['create' , 'store' , 'edit' , 'update']]);
+        $this->middleware('auth' , ['only' => ['create' , 'store' , 'edit' , 'update' , 'destory' , 'imageUpload' , 'zan' , 'unzan']]);
     }
 
     /**
@@ -122,6 +123,22 @@ class PostController extends Controller
         $comment->user_id = Auth::id();
         $comment->content = request('content');
         $post->comments()->save($comment);
+        return back();
+    }
+
+    public function zan(Post $post)
+    {
+        $params = [
+            'user_id' => Auth::id(),
+            'post_id' => $post->id
+        ];
+        Zan::firstOrCreate($params);
+        return back();
+    }
+
+    public function unzan(Post $post)
+    {
+        $post->zan(Auth::id())->delete();
         return back();
     }
 }
