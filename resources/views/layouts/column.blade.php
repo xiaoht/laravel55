@@ -14,7 +14,10 @@ $post_type = \Request()->post_type;
             <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
 
             <!-- 用户登入后显示 -->
-            <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="{{ route('user.index' , ['user' => Auth::user()]) }}">用户中心</a></li>
+            @guest
+            @else
+                <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="{{ route('user.index' , ['user' => Auth::user()]) }}">用户中心</a></li>
+            @endguest
         </ul>
 
         <div class="fly-column-right layui-hide-xs">
