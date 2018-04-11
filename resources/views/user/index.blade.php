@@ -9,7 +9,7 @@
             </a>
         </li>
         <li class="layui-nav-item layui-this">
-            <a href="{{ route('user.index' , ['user' => $user , 'location' => '']) }}">
+            <a href="{{ route('user.index' , ['user' => $user]) }}">
                 <i class="layui-icon">&#xe612;</i>
                 用户中心
             </a>

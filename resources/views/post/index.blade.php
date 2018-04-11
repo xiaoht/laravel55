@@ -20,7 +20,7 @@
                         <a href="{{ route('post.show' , ['post'=>$post]) }}">{!! str_limit($post->title, 70 , '...') !!}</a>
                     </h2>
                     <div class="fly-list-info">
-                        <a href="user/home.html" link>
+                        <a href="{{ route('user.show' , ['user' => $user]) }}" link>
                             <cite>{{ $post->user->name }}</cite>
                         </a>
                         <span>{{ $post->created_at->diffForHumans() }}</span>

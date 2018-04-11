@@ -107,6 +107,7 @@ class PostController extends Controller
     {
         $this->authorize('delete' , $post);
         $post->delete();
+        $post->comments()->delete();
         return redirect(route('home'));
     }
 
