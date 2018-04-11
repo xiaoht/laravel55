@@ -108,6 +108,7 @@ class PostController extends Controller
         $this->authorize('delete' , $post);
         $post->delete();
         $post->comments()->delete();
+        $post->zans()->delete();
         return redirect(route('home'));
     }
 

@@ -35,16 +35,16 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class)->orderBy('created_at' , 'desc');
+        return $this->hasMany(Post::class , 'user_id' , 'id')->orderBy('created_at' , 'desc');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class)->orderBy('created_at' , 'desc');
+        return $this->hasMany(Comment::class , 'user_id' , 'id')->orderBy('created_at' , 'desc');
     }
 
     public function zans()
     {
-        return $this->hasMany(Zan::class)->orderBy('created_at' , 'desc');
+        return $this->hasMany(Zan::class , 'user_id' , 'id')->orderBy('created_at' , 'desc');
     }
 }

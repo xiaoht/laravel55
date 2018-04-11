@@ -15,12 +15,12 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'user_id' , 'id');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class)->orderBy('created_at' , 'desc');
+        return $this->hasMany(Comment::class , 'post_id' , 'id')->orderBy('created_at' , 'desc');
     }
 
     public function zan($user_id)
@@ -30,6 +30,6 @@ class Post extends Model
 
     public function zans()
     {
-        return $this->hasMany(Zan::class);
+        return $this->hasMany(Zan::class , 'post_id' , 'id');
     }
 }

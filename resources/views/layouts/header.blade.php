@@ -21,6 +21,9 @@
             <li class="layui-nav-item layui-this">
                 <a href="/"><i class="iconfont icon-jiaoliu"></i>社区</a>
             </li>
+            <li class="layui-nav-item layui-this">
+                <a href="/admin" target="_blank"><i class="iconfont icon-iconmingxinganli"></i>后台</a>
+            </li>
         </ul>
 
         <ul class="layui-nav fly-nav-user">

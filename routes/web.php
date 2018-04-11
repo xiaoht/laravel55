@@ -24,3 +24,11 @@ Route::get('/user/{user}/show' , 'UserController@show')->name('user.show');
 Route::group(['middleware' => 'auth:web'], function(){
     Route::get('/user/{user}/index' , 'UserController@index')->name('user.index');
 });
+
+
+Route::namespace('Admin')->group(function (){
+    Route::group(['prefix' => 'admin'], function() {
+        Route::get('/', 'HomeController@index')->name('admin.home');
+        Route::get('/welcome', 'HomeController@welcome')->name('admin.welcome');
+    });
+});
