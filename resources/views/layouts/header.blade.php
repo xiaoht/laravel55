@@ -30,7 +30,7 @@
             @guest
                 <!-- 未登入的状态 -->
                 <li class="layui-nav-item">
-                    <a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
+                    <a class="iconfont icon-touxiang layui-hide-xs" href="{{ route('login') }}"></a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="{{ route('login') }}">登入</a>

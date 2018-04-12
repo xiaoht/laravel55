@@ -85,8 +85,11 @@
             @endif
         </ul>
 
-        <div class="layui-form layui-form-pane">
-            {!! Form::open(['url' => route('post.comment' , ['post' => $post])]) !!}
+        @guest
+            <button href="{{ route('login') }}" class="layui-btn layui-btn-fluid" style="width: 100%">快去登陆评论吧！！！</button>
+        @else
+            <div class="layui-form layui-form-pane">
+                {!! Form::open(['url' => route('post.comment' , ['post' => $post])]) !!}
                 <div class="layui-form-item layui-form-text">
                     <div class="layui-input-block">
                         {!! Form::textarea ('content' , old('title') , ['id' => 'L_content' , 'class' => 'layui-textarea fly-editor']) !!}
@@ -95,7 +98,8 @@
                 <div class="layui-form-item">
                     {!! Form::submit('提交回复' , ['class' => 'layui-btn']) !!}
                 </div>
-            {!! Form::close() !!}
-        </div>
+                {!! Form::close() !!}
+            </div>
+        @endguest
     </div>
 @endsection
