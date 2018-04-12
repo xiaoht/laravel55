@@ -26,22 +26,22 @@
             </div>
             <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
                 @can('update' , $post)
-                    <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="{{ route('post.edit' , ['post' => $post]) }}">编辑此贴</a></span>
+                    <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="{{ route('post.edit' , [$post]) }}">编辑此贴</a></span>
                 @endcan
                 @can('update' , $post)
                     <span class="layui-btn layui-btn-xs jie-admin" type="edit" onclick="event.preventDefault();document.getElementById('delete-post').submit();">删除此帖</span>
-                    {!! Form::open(['url' => route('post.destroy' , ['post' => $post]) , 'method' => 'DELETE ' , 'style' => 'display:none' , 'id' => 'delete-post']) !!}
+                    {!! Form::open(['url' => route('post.destroy' , [$post]) , 'method' => 'DELETE ' , 'style' => 'display:none' , 'id' => 'delete-post']) !!}
                         {!! Form::hidden('_method' , 'DELETE') !!}
                     {!! Form::close() !!}
                 @endcan
                 @if($post->zan(\Auth::id())->exists())
                     <span class="jieda-zan zanok" type="zan">
-                        <a href="{{ route('post.unzan' , ['post' => $post])}}" class="iconfont icon-zan"></a>
+                        <a href="{{ route('post.unzan' , [$post])}}" class="iconfont icon-zan"></a>
                         <em>取消点赞即可取消收藏！！！</em>
                     </span>
                 @else
                     <span class="jieda-zan" type="zan">
-                        <a href="{{ route('post.zan' , ['post' => $post]) }}" class="iconfont icon-zan"></a>
+                        <a href="{{ route('post.zan' , [$post]) }}" class="iconfont icon-zan"></a>
                         <em>点赞即可收藏！！！</em>
                     </span>
                 @endif
@@ -89,7 +89,7 @@
             <button href="{{ route('login') }}" class="layui-btn layui-btn-fluid" style="width: 100%">快去登陆评论吧！！！</button>
         @else
             <div class="layui-form layui-form-pane">
-                {!! Form::open(['url' => route('post.comment' , ['post' => $post])]) !!}
+                {!! Form::open(['url' => route('post.comment' , [$post])]) !!}
                 <div class="layui-form-item layui-form-text">
                     <div class="layui-input-block">
                         {!! Form::textarea ('content' , old('title') , ['id' => 'L_content' , 'class' => 'layui-textarea fly-editor']) !!}

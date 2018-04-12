@@ -9,7 +9,7 @@
                 </ul>
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
                     <div class="layui-tab-item layui-show">
-                        {!! Form::open(['url' => route('post.update' , ['post' => $post]) , 'method' => 'put']) !!}
+                        {!! Form::open(['url' => route('post.update' , [$post]) , 'method' => 'put']) !!}
                         <div class="layui-row layui-col-space15 layui-form-item">
                             <div class="layui-col-md4">
                                 {!! Form::label('post_type', '专栏' , ['class' => 'layui-form-label']) !!}
