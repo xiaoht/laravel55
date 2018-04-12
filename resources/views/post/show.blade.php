@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="detail-body jieda-body photos">
-                            <p>{{ $comment->content }}</p>
+                            <p>{!! $comment->content !!}</p>
                         </div>
                     </li>
                 @endforeach
