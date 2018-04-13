@@ -1,9 +1,10 @@
-layui.use(['element' , 'form' , 'layedit' , 'util'], function(){
-    var element = layui.element,
-        form = layui.form,
-        layedit = layui.layedit,
-        util = layui.util,
-        $ = layui.jquery;
+layui.use(['element' , 'form' , 'layedit' , 'util' , 'carousel'], function(){
+    var element = layui.element
+        , form = layui.form
+        , layedit = layui.layedit
+        , util = layui.util
+        , $ = layui.jquery
+        , carousel = layui.carousel;
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -27,5 +28,11 @@ layui.use(['element' , 'form' , 'layedit' , 'util'], function(){
                 location.href = '/post/create';
             }
         }
+    });
+
+    carousel.render({
+        elem: '#home_banner'
+        , width: '100%'
+        ,arrow: 'always'
     });
 });

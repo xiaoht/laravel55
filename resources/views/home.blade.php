@@ -1,6 +1,18 @@
 @extends('layouts.community')
 @section('content')
+    <div class="fly-panel">
+        <div class="layui-carousel" id="home_banner">
+            <div carousel-item="">
+                <img src="fly/res/images/fly.jpg">
+                <img src="fly/res/images/fly.jpg">
+                <img src="fly/res/images/fly.jpg">
+                <img src="fly/res/images/fly.jpg">
+                <img src="fly/res/images/fly.jpg">
+            </div>
+        </div>
+    </div>
     <div class="fly-panel" style="margin-bottom: 0;">
+
 
         <div class="fly-panel-title fly-filter">
             <a href="" class="layui-this">综合</a>
