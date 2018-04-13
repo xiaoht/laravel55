@@ -29,7 +29,7 @@
                     </a>
                     <h2>
                         <a class="layui-badge">{{ $post_types[$post->post_type] }}</a>
-                        <a href="{{ route('post.show' , ['post' => $post]) }}">{!! str_limit($post->title, 70 , '...') !!}</a>
+                        <a href="{{ route('post.show' , [$post]) }}">{!! str_limit($post->title, 70 , '...') !!}</a>
                     </h2>
                     <div class="fly-list-info">
                         <a href="{{ route('user.show' , ['user' => $post->user]) }}" link>

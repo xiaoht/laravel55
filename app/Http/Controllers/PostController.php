@@ -53,7 +53,7 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
         ];
         $post = Post::create(array_merge($request->all() , $data));
-        return redirect(route('post.show' , ['post' => $post]));
+        return redirect(route('post.show' , [$post]));
     }
 
     /**
@@ -94,7 +94,7 @@ class PostController extends Controller
     {
         $this->authorize('update' , $post);
         $post->update($request->all());
-        return redirect(route('post.show' , ['post' => $post]));
+        return redirect(route('post.show' , [$post]));
     }
 
     /**
