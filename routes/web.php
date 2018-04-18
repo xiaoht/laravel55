@@ -18,6 +18,8 @@ Route::resource('post' , 'PostController');
 Route::get('/v{post_type}', 'PostController@index')->name('post_home');
 Route::post('/post/imageUpload' , 'PostController@imageUpload');
 Route::post('/post/{post}/comment' , 'PostController@comment')->name('post.comment');
+Route::post('/post/search' , 'PostController@search');
+Route::get('/post/search' , 'PostController@search');
 Route::get('/post/{post}/zan' , 'PostController@zan')->name('post.zan');
 Route::get('/post/{post}/unzan' , 'PostController@unzan')->name('post.unzan');
 Route::get('/user/{user}/show' , 'UserController@show')->name('user.show');

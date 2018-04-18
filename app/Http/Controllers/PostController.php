@@ -143,4 +143,13 @@ class PostController extends Controller
         $post->zan(Auth::id())->delete();
         return back();
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $post_types = Post::$post_types;
+        $posts = Post::search($search)->paginate(10);
+        return view('post.search' , compact('posts' , 'search' , 'post_types'));
+
+    }
 }

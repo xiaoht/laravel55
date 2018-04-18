@@ -35,4 +35,33 @@ layui.use(['element' , 'form' , 'layedit' , 'util' , 'carousel'], function(){
         , width: '100%'
         ,arrow: 'always'
     });
+
+    $('.fly-search').on('click', function(){
+        var toke_name = $('meta[name="csrf-token"]').attr('content');
+        layer.open({
+            type: 1
+            ,title: false
+            ,closeBtn: false
+            //,shade: [0.1, '#fff']
+            ,shadeClose: true
+            ,maxWidth: 10000
+            ,skin: 'fly-layer-search'
+            ,content: ['<form action="http://www.haitaostyle.top/post/search" method="post">'
+                ,'<input autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="search">'
+                ,'<input type="hidden" name="_token" value="'+toke_name+'">'
+                ,'</form>'].join('')
+            ,success: function(layero){
+                var input = layero.find('input[name="search"]');
+                input.focus();
+
+                layero.find('form').submit(function(){
+                    var val = input.val();
+                    if(val.replace(/\s/g, '') === ''){
+                        return false;
+                    }
+                    input.val(input.val());
+                });
+            }
+        })
+    });
 });

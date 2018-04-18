@@ -3,9 +3,11 @@
 namespace App\Http\Models;
 
 use App\User;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
+    use Searchable;
     public static $post_types = [
     	'提问',
     	'分享',
