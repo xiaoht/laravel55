@@ -30,7 +30,7 @@
                                     <span class="layui-badge layui-bg-green fly-detail-column">{{ $post_types[$post->post_type] }}</span>
                                     <a href="{{ route('post.show' , [$post]) }}" target="_blank" class="jie-title">{!! str_limit($post->title, 40 , '...') !!}</a>
                                     <i>{{ $post->created_at->diffForHumans() }}</i>
-                                    <em class="layui-hide-xs">{{ $post->views }}阅/{{ count($post->comments) }}答/{{ count($post->zans) }}赞</em>
+                                    <em class="layui-hide-xs">{{ $post->comments_count }}答/{{ $post->views_count }}阅/{{ $post->zans_count }}赞</em>
                                 </li>
                             @endforeach
                         @else

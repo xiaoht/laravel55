@@ -41,7 +41,7 @@
                                 <a class="jie-title" href="{{ route('post.show' , [$post]) }}" target="_blank">{!! str_limit($post->title, 70 , '...') !!}</a>
                                 <i>{{ $post->created_at->toDateTimeString() }}</i>
                                 <a class="mine-edit" href="{{ route('post.edit' , [$post]) }}">编辑</a>
-                                <em>{{ $post->views }}阅/{{ count($post->comments) }}答/{{ count($post->zans) }}赞</em>
+                                <em>{{ $post->comments_count }}答/{{ $post->views_count }}阅/{{ $post->zans_count }}赞</em>
                             </li>
                         @endforeach
                     </ul>

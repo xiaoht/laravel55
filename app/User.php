@@ -47,4 +47,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Zan::class , 'user_id' , 'id')->orderBy('created_at' , 'desc');
     }
+
+    public static function getMostCommentsUser()
+    {
+        $users = User::withCount(['comments'])->orderBy('comments_count' ,  'desc')->take(9)->get();
+        return $users;
+    }
 }

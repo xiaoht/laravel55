@@ -5,11 +5,11 @@
         <div class="fly-detail-info">
             <span class="layui-badge layui-bg-blue fly-detail-column">{{ $post_types[$post->post_type] }}</span>
             <span class="fly-list-nums">
-            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> {{ count($post->comments) }}</a>
-            <i class="iconfont" title="人气">&#xe60b;</i> {{ $post->views }}
+            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> {{ $post->comments_count }}</a>
+            <i class="iconfont" title="人气">&#xe60b;</i> {{ $post->views_count }}
             <span class="jieda-zan" type="zan">
                 <i class="iconfont icon-zan"></i>
-                {{ count($post->zans) }}
+                {{ $post->zans_count }}
             </span>
           </span>
         </div>

@@ -32,4 +32,10 @@ class Post extends Model
     {
         return $this->hasMany(Zan::class , 'post_id' , 'id');
     }
+
+    public static function getHotPosts()
+    {
+        $posts = Post::orderBy('comments_count' ,  'desc')->with(['user'])->take(10)->get();
+        return $posts;
+    }
 }

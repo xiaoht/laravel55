@@ -34,6 +34,7 @@ layui.use(['element' , 'form' , 'layedit' , 'util' , 'carousel'], function(){
         elem: '#home_banner'
         , width: '100%'
         ,arrow: 'always'
+        ,height:'360px'
     });
 
     $('.fly-search').on('click', function(){

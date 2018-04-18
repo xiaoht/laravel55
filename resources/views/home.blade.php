@@ -3,11 +3,11 @@
     <div class="fly-panel">
         <div class="layui-carousel" id="home_banner">
             <div carousel-item="">
-                <img src="fly/res/images/fly.jpg">
-                <img src="fly/res/images/fly.jpg">
-                <img src="fly/res/images/fly.jpg">
-                <img src="fly/res/images/fly.jpg">
-                <img src="fly/res/images/fly.jpg">
+                <img src="fly/res/images/fly1.jpg">
+                <img src="fly/res/images/fly2.jpg">
+                <img src="fly/res/images/fly4.jpg">
+                <img src="fly/res/images/fly5.jpg">
+                <img src="fly/res/images/fly6.jpg">
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
                         <span>{{ $post->created_at->diffForHumans() }}</span>
                         <span class="fly-list-nums">
                             <i class="iconfont icon-pinglun1" title="回答"></i> {{ $post->comments_count }}
-                            <i class="iconfont" title="人气">&#xe60b;</i> {{ $post->views }}
+                            <i class="iconfont" title="人气">&#xe60b;</i> {{ $post->views_count }}
                             <i class="iconfont icon-zan"></i> {{ $post->zans_count }}
                         </span>
                     </div>

@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function index($post_type)
     {
-        $posts = Post::where('post_type' , $post_type)->orderBy('created_at' ,  'desc')->with(['user'])->withCount(['comments','zans'])->paginate(10);
+        $posts = Post::where('post_type' , $post_type)->orderBy('created_at' ,  'desc')->with(['user'])->paginate(10);
         $post_types = Post::$post_types;
         return view('post.index' , compact('posts' , 'post_types'));
     }
@@ -66,7 +66,7 @@ class PostController extends Controller
     {
         $post->load(['user' , 'comments' , 'comments.user' , 'zans']);
         $post_types = Post::$post_types;
-        DB::table('posts')->where('id' , $post->id)->increment('views');
+        DB::table('posts')->where('id' , $post->id)->increment('views_count');
         return view('post.show' , compact('post' , 'post_types'));
     }
 
@@ -124,7 +124,10 @@ class PostController extends Controller
         $comment = new Comment();
         $comment->user_id = Auth::id();
         $comment->content = request('content');
-        $post->comments()->save($comment);
+        $res = $post->comments()->save($comment);
+        if ($res){
+            DB::table('posts')->where('id' , $post->id)->increment('comments_count');
+        }
         return back();
     }
 
@@ -134,13 +137,19 @@ class PostController extends Controller
             'user_id' => Auth::id(),
             'post_id' => $post->id
         ];
-        Zan::firstOrCreate($params);
+        $res  = Zan::firstOrCreate($params);
+        if ($res){
+            DB::table('posts')->where('id' , $post->id)->increment('zans_count');
+        }
         return back();
     }
 
     public function unzan(Post $post)
     {
-        $post->zan(Auth::id())->delete();
+        $res = $post->zan(Auth::id())->delete();
+        if ($res){
+            DB::table('posts')->where('id' , $post->id)->decrement('zans_count');
+        }
         return back();
     }
 
