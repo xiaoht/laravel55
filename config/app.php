@@ -179,6 +179,7 @@ return [
 
         Naux\Mail\SendCloudServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 
