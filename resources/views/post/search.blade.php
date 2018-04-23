@@ -3,10 +3,10 @@
     <div class="fly-panel" style="margin-bottom: 0;">
 
         <div class="fly-panel-title fly-filter">
-            <a href="" class="layui-this">{{ $search }}</a>
-            <a href="" class="layui-this">搜索结果：</a>
+            <a href="javascript:;" class="layui-this">{{ $search }}</a>
+            <a href="javascript:;" class="layui-this">搜索结果：</a>
             <span class="fly-filter-right layui-hide-xs">
-            <a href="" class="layui-this">按最新</a>
+            <a href="javascript:;" class="layui-this">按最新</a>
           </span>
         </div>
 
