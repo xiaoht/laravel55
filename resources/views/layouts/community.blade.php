@@ -45,7 +45,7 @@ $most_comments_users = User::getMostCommentsUser();
             <div class="fly-panel fly-link">
                 <h3 class="fly-panel-title">友情链接</h3>
                 <dl class="fly-panel-main">
-                    <dd><a href="http://www.xiaohtstyle.com" target="_blank">yii2</a><dd>
+                    <dd><a href="https://m.kuaidi100.com/" target="_blank">快递查询</a></dd>
                 </dl>
             </div>
 
